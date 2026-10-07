@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>URBAN NUTRI SHOP — Réseaux sociaux</title>
+<style>
+  :root{
+    --bg:#faf9f6;
+    --ink:#1b1b1b;
+    --ink-dim:#6b6b66;
+    --line:#e7e5df;
+    --card:#ffffff;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:inherit;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px); height:100%;}
+  body{
+    height:100%;
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    display:flex;
+    justify-content:center;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    width:100%;
+    max-width:440px;
+    min-height:100%;
+    padding:52px 28px 40px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  h1{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    font-weight:800;
+    font-size:38px;
+    letter-spacing:-0.01em;
+    line-height:1.1;
+    margin:0 0 8px;
+    text-align:center;
+    color:var(--ink);
+  }
+  .subtitle{
+    margin:0 0 36px;
+    font-size:14px;
+    font-weight:500;
+    color:var(--ink-dim);
+    text-align:center;
+  }
+
+  /* Grille type "écran d'accueil" */
+  .grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:22px 16px;
+    margin-bottom:34px;
+  }
+  .app{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .app-icon{
+    width:100%;
+    aspect-ratio:1/1;
+    border-radius:22%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 1px 2px rgba(0,0,0,.06), 0 4px 10px rgba(0,0,0,.05);
+    transition:transform .12s ease;
+  }
+  .app:active .app-icon{transform:scale(0.94);}
+  .app-icon svg{width:56%;height:56%;display:block;}
+  .app-label{
+    font-size:12.5px;
+    font-weight:500;
+    text-align:center;
+    color:var(--ink);
+  }
+  .app:focus-visible .app-icon{outline:2px solid var(--ink); outline-offset:2px;}
+
+  /* Icônes marques */
+  .ic-instagram{background:radial-gradient(circle at 30% 105%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
+  .ic-snapchat{background:#FFFC00;}
+  .ic-twitter{background:#000000;}
+  .ic-facebook{background:#1877F2;}
+  .ic-youtube{background:#FF0000;}
+  .ic-tiktok{background:#010101;}
+  .ic-pinterest{background:#E60023;}
+
+  /* Bouton avis Google */
+  .review{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:16px 18px;
+    border-radius:14px;
+    background:var(--card);
+    border:1px solid var(--line);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    margin-bottom:24px;
+    box-shadow:0 1px 2px rgba(0,0,0,.04);
+    transition:transform .1s ease, box-shadow .15s ease;
+  }
+  .review:active{transform:scale(0.98);}
+  .review:hover{box-shadow:0 2px 6px rgba(0,0,0,.08);}
+  .review:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
+  .review .g-icon{width:20px;height:20px;flex:0 0 auto;}
+
+  footer{
+    margin-top:auto;
+    padding-top:20px;
+    font-size:11px;
+    color:var(--ink-dim);
+    text-align:center;
+  }
+
+  .hidden{display:none !important;}
+
+  @media (max-width:340px){
+    .page{padding:40px 18px 32px;}
+    h1{font-size:30px;}
+    .grid{gap:18px 12px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <h1 id="businessName">Nom du commerce</h1>
+  <p class="subtitle" id="businessSub">Ville · Activité</p>
+
+  <div class="grid" id="linksContainer"></div>
+
+  <a class="review hidden" id="siteLink" target="_blank" rel="noopener">
+    <span class="g-icon">
+      <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20.4H24v7.2h11.3c-1.6 4.7-6 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 8 3l5.1-5.1C33.7 6.1 29.1 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l5.9 4.3C13.8 15.4 18.5 12 24 12c3.1 0 5.8 1.1 8 3l5.1-5.1C33.7 6.1 29.1 4 24 4 16.3 4 9.6 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5 0 9.6-1.9 13.1-5.1l-6-5c-2 1.4-4.6 2.2-7.1 2.2-5.2 0-9.6-3.3-11.3-7.9l-5.9 4.6C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20.4H24v7.2h11.3c-.8 2.2-2.2 4.1-4.1 5.4l6 5C40.6 35 44 30 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+    </span>
+    Visiter notre site
+  </a>
+
+  <footer></footer>
+</div>
+
+<script>
+/* =========================================================
+   CONFIGURATION — à modifier pour chaque client
+   Laisser url:"" (vide) masque automatiquement l'icône.
+   ========================================================= */
+const CONFIG = {
+  businessName: "URBAN NUTRI SHOP",
+  businessSub: "Melun · Compléments alimentaires",
+  networks: {
+    instagram: { label: "Instagram",   url: "https://www.instagram.com/urban_nutri_shop/" },
+    facebook:  { label: "Facebook",    url: "https://www.facebook.com/UrbanNutriShop/" },
+    tiktok:    { label: "TikTok",      url: "https://www.tiktok.com/@urbannutrishop.com" },
+    youtube:   { label: "YouTube",     url: "https://www.youtube.com/channel/UC5b1fbkeH_sibVEfRysy62Q" },
+    twitter:   { label: "X",           url: "https://x.com/urbannutrishop" },
+    pinterest: { label: "Pinterest",   url: "https://fr.pinterest.com/urbannutrishop/_created/" }
+  },
+  siteUrl: "https://urban-nutri-shop.com/"
+};
+/* ========================================================= */
+
+const ICONS = {
+  pinterest: '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10.6 21.2l2.2-9.6"/><path d="M9.2 14.6C7.4 11.8 8.2 6.4 12.7 6.2c3.5-.1 5.1 2.4 4.6 5-.5 2.5-2.5 3.8-4.5 3.1"/></svg>',
+  instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1" fill="#fff" stroke="none"/></svg>',
+  snapchat:  '<svg viewBox="0 0 24 24" fill="#fff"><path d="M12.03 3.2c2.55 0 4.4 1.9 4.55 4.3.04.66.03 1.67.02 2.5.3.17.78.38 1.18.38.36 0 .67.24.75.58.07.35-.09.7-.4.87-.03.02-.78.44-1.57.73.11.26.48.9 1.44 1.31.28.12.44.42.38.72-.12.53-.93.86-1.77 1.07-.05.2-.13.48-.22.69-.12.26-.38.41-.67.38-.28-.02-.87-.06-1.31.06-.38.11-.67.38-1.02.7-.52.48-1.12 1.02-2.23 1.02l-.21-.01h-.44l-.21.01c-1.11 0-1.7-.54-2.23-1.02-.35-.32-.63-.59-1.02-.7-.44-.12-1.03-.08-1.31-.06-.29.03-.55-.12-.67-.38-.1-.21-.17-.48-.22-.69-.84-.21-1.65-.54-1.77-1.07-.06-.3.1-.6.38-.72.96-.41 1.33-1.05 1.44-1.31-.79-.29-1.54-.71-1.57-.73-.32-.17-.47-.53-.4-.87.08-.34.4-.58.75-.58.4 0 .89-.21 1.18-.38-.01-.83-.02-1.83.02-2.5.15-2.4 2-4.3 4.55-4.3z"/></svg>',
+  twitter:   '<svg viewBox="0 0 24 24" fill="#fff"><path d="M14.1 10.3 20 3.2h-1.6L13.4 9.2 9.2 3.2H3.3l6.3 9.1L3.3 20.8h1.6l5.4-6.4 4.5 6.4h5.9zm-1.9 2.3-.6-.9L6.9 4.7h2.2l4.2 5.9.6.9 5.5 7.7h-2.2z"/></svg>',
+  facebook:  '<svg viewBox="0 0 24 24" fill="#fff"><path d="M13.4 21v-7.7h2.6l.4-3h-3v-1.9c0-.9.25-1.5 1.53-1.5H16.5V4.2c-.27 0-1.2-.1-2.28-.1-2.26 0-3.8 1.38-3.8 3.9v2.2H8v3h2.42V21z"/></svg>',
+  youtube:   '<svg viewBox="0 0 24 24" fill="#fff"><path d="M9.8 15.3 15.3 12 9.8 8.7z"/></svg>',
+  tiktok:    '<svg viewBox="0 0 24 24"><path fill="#25F4EE" d="M16.3 3.3c.5 1.9 1.7 3.1 3.6 3.4v3.1c-1.3 0-2.5-.4-3.6-1.2v6.6c0 3.3-2.7 5.3-5.5 5.3-1.2 0-2.4-.4-3.3-1.2-1.6-1.3-2.2-3.6-1.3-5.6 1-2.3 3.6-3.4 5.9-2.8v3.2c-.4-.1-.9-.2-1.3-.1-1.1.2-1.9 1.2-1.8 2.3.1 1.1 1.1 2 2.3 1.9 1.1-.1 2-1 2-2.1V3h3z"/><path fill="#FE2C55" d="M16.3 3.3h-2v14.1c0 1.1-.9 2-2 2.1-.8.05-1.5-.3-1.9-.9.7.4 1.6.5 2.4.2 1-.4 1.6-1.4 1.6-2.4V3.3c1.9.3 3.1 1.5 3.6 3.4v-.1c-.9-.6-1.5-1.7-1.7-3.3z" opacity=".001"/><path fill="#000" d="M11.5 11.8v3.2c-2.3-.6-4.9.5-5.9 2.8-.9 2-.3 4.3 1.3 5.6l-.1-.1c-1.6-1.3-2.2-3.6-1.3-5.6 1-2.2 3.4-3.3 5.6-2.9v-3z" opacity="0"/></svg>'
+};
+
+const gicon = '<svg class="g-icon" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20.4H24v7.2h11.3c-1.6 4.7-6 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 8 3l5.1-5.1C33.7 6.1 29.1 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l5.9 4.3C13.8 15.4 18.5 12 24 12c3.1 0 5.8 1.1 8 3l5.1-5.1C33.7 6.1 29.1 4 24 4 16.3 4 9.6 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5 0 9.6-1.9 13.1-5.1l-6-5c-2 1.4-4.6 2.2-7.1 2.2-5.2 0-9.6-3.3-11.3-7.9l-5.9 4.6C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20.4H24v7.2h11.3c-.8 2.2-2.2 4.1-4.1 5.4l6 5C40.6 35 44 30 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
+
+function normalizeUrl(u){
+  if(!u) return "";
+  u = u.trim();
+  if(!u) return "";
+  if(!/^https?:\/\//i.test(u)) u = "https://" + u;
+  return u;
+}
+
+function render(){
+  document.getElementById('businessName').textContent = CONFIG.businessName || "Nom du commerce";
+  document.getElementById('businessSub').textContent = CONFIG.businessSub || "";
+
+  const container = document.getElementById('linksContainer');
+  container.innerHTML = "";
+
+  Object.entries(CONFIG.networks).forEach(([key, net]) => {
+    const url = normalizeUrl(net.url);
+    if(!url) return;
+    const a = document.createElement('a');
+    a.className = 'app';
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.innerHTML = `
+      <span class="app-icon ic-${key}">${ICONS[key] || ''}</span>
+      <span class="app-label">${net.label}</span>
+    `;
+    container.appendChild(a);
+  });
+
+  const siteUrl = normalizeUrl(CONFIG.siteUrl);
+  const siteEl = document.getElementById('siteLink');
+  if(siteUrl){
+    siteEl.href = siteUrl;
+    siteEl.classList.remove('hidden');
+  } else {
+    siteEl.classList.add('hidden');
+  }
+}
+
+render();
+</script>
+</body>
+</html>
